@@ -1,0 +1,27 @@
+{% extends "MK_apps/base.html" %}
+
+{% block content %}
+	</br>
+	</br>
+	<h2>Wybierz operacje</h2>
+	<hr>
+	<div class="row row-cols-1 row-cols-md-2">
+		<div class="col mb-6">
+			<div class="row row-cols-1 row-cols-md-3">
+				{% for operation in operations %}
+					  <div class="col mb-4">
+						<div class="card">
+						  <div class="card-body">
+							<h5 class="card-title">{{operation}}</h5>
+							<hr>
+							<a href="{% url 'MK_apps:operation' operation.id %}" ><button type="button" class="btn btn-outline-success">Wybierz operacje</button></a>
+						  </div>
+						</div>
+					  </div>
+				{% empty %}
+					<li> nie zostla dodana zadna operacja</li>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock content %}
